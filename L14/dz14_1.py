@@ -29,7 +29,7 @@ class Student(Human):
         return f"{super().__str__()} {self.record_book}"
 
 
-class GroupExeption(Exception):
+class GroupExeption(Exception):  # роблю виняток
     pass
 
 
@@ -41,7 +41,7 @@ class Group:
         self.group = set()
 
     def add_student(self, student):
-        if len(self.group) >= self.max_students:
+        if len(self.group) >= self.max_students:  # перевіряю чи не більше 10 студентів
             raise GroupExeption
         self.group.add(student)
 
