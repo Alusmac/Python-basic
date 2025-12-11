@@ -42,7 +42,8 @@ class Group:
 
     def add_student(self, student):
         if len(self.group) >= self.max_students:  # перевіряю чи не більше 10 студентів
-            raise GroupExeption
+            raise GroupExeption("Не можна додавати більше 10 студентів")
+
         self.group.add(student)
 
     def delete_student(self, last_name):
@@ -83,15 +84,10 @@ gr.add_student(st7)
 gr.add_student(st8)
 gr.add_student(st9)
 gr.add_student(st10)
-gr.add_student(st11)  # якщо 11го приберемо то все виводить
+# gr.add_student(st11)  # якщо 11го приберемо то все виводить
+try:
+    gr.add_student(st11)
+except GroupExeption as s:
+    print("Виникла помилка:", s)
+
 print(gr)
-# assert str(gr.find_student("Jobs")) == str(st1), "Test1"
-# assert gr.find_student("Jobs2") is None, "Test2"
-# assert (
-#    isinstance(gr.find_student("Jobs"), Student) is True
-# ), "Метод поиска должен возвращать экземпляр"
-
-# gr.delete_student("Taylor")
-# print(gr)  # Only one student
-
-# gr.delete_student("Taylor")  # No error!
